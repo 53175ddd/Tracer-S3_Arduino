@@ -3,6 +3,18 @@
 #include "UI.hpp"
 #include "run.hpp"
 
+extern float Kp;  // 比例ゲイン
+extern float Kd;  // 微分ゲイン
+
+extern int16_t base_speed;
+extern int16_t speed_diff;
+
+extern const char* SSID;
+extern const char* PASS;
+
+extern sensor_t data_min;
+extern sensor_t data_max;
+
 void setup() {
   Serial.begin(115200);
   delay(100);

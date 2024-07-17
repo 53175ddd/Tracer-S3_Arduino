@@ -22,31 +22,6 @@
 
 // BluetoothSerial SerialBT;
 
-typedef struct {
-  float s1;
-  float s2;
-  float s3;
-  float s4;
-  float s5;
-} normalized_line_t;
-
-typedef struct {
-  int16_t s1;
-  int16_t s2;
-  int16_t s3;
-  int16_t s4;
-  int16_t s5;
-} sensor_t;
-
-typedef struct {
-  sensor_t on;
-  sensor_t off;
-  sensor_t diff;
-} diff_t;
-
-sensor_t data_min = {32767, 32767, 32767, 32767, 32767};
-sensor_t data_max = {0, 0, 0, 0, 0};
-
 void LED_init(void) {
   /* 初期状態を設定 */
   pinMode(LED1_OUT, OUTPUT);

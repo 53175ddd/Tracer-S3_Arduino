@@ -25,11 +25,36 @@
 #define DRV8835_BIN1_OUT 38
 #define DRV8835_BIN2_OUT 39
 
-extern float Kp = 1.200f;  // 比例ゲイン
-extern float Kd = 0.400f;  // 微分ゲイン
+float Kp = 1.200f;  // 比例ゲイン
+float Kd = 0.400f;  // 微分ゲイン
 
-extern int16_t base_speed = 1200;
-extern int16_t speed_diff = 350;
+int16_t base_speed = 1200;
+int16_t speed_diff = 350;
 
-extern const char* SSID = "Your SSID here";
-extern const char* PASS = "Your Password";
+const char* SSID = "Your SSID here";
+const char* PASS = "Your PSK here";
+
+typedef struct {
+  float s1;
+  float s2;
+  float s3;
+  float s4;
+  float s5;
+} normalized_line_t;
+
+typedef struct {
+  int16_t s1;
+  int16_t s2;
+  int16_t s3;
+  int16_t s4;
+  int16_t s5;
+} sensor_t;
+
+typedef struct {
+  sensor_t on;
+  sensor_t off;
+  sensor_t diff;
+} diff_t;
+
+sensor_t data_min = {32767, 32767, 32767, 32767, 32767};
+sensor_t data_max = {0, 0, 0, 0, 0};
